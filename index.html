@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine</title>
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <audio src="music.mp3" autoplay loop></audio>
+    <div class="text">
+      <h1>Hey Beautiful?<br /><span class="messege"></span></h1>
+    </div>
+    <div class="button-container">
+      <button id="dynamicButton2">
+        YES
+        <i
+          class="em em-heart_eyes"
+          aria-role="presentation"
+          aria-label="SMILING FACE WITH HEART-SHAPED EYES"
+        ></i>
+      </button>
+      <button id="dynamicButton">
+        NO
+        <i
+          class="em em-sob"
+          aria-role="presentation"
+          aria-label="LOUDLY CRYING FACE"
+        ></i>
+      </button>
+    </div>
+  </body>
+</html>
+
+<script src="https://unpkg.com/ityped@0.0.10"></script>
+<script>
+  window.ityped.init(document.querySelector(".messege"), {
+    strings: [
+      "I love You!",
+      "and I need You to be my Valentine",
+      "WHAT DO YOU THINK!",
+    ],
+    loop: true,
+  });
+  const button = document.getElementById("dynamicButton");
+  const button2 = document.getElementById("dynamicButton2");
+
+  button.addEventListener("click", () => {
+    const randomX = Math.floor(Math.random() * 101);
+    const randomY = Math.floor(Math.random() * 201);
+    const currentOpacity = parseFloat(getComputedStyle(button).opacity);
+    const currentSize = parseFloat(getComputedStyle(button).fontSize);
+    const currentSize2 = parseFloat(getComputedStyle(button2).fontSize);
+
+    button.style.opacity = (currentOpacity - 0.1).toFixed(2);
+    button.style.fontSize = `${currentSize * 0.75}px`;
+    button.style.left = `${randomX}px`;
+    button.style.top = `${randomY}px`;
+    button2.style.fontSize = `${currentSize2 * 1.2}px`;
+  });
+</script>
