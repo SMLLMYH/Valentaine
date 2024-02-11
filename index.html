@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valentine</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -12,14 +13,18 @@
       <h1>Hey Beautiful?<br /><span class="messege"></span></h1>
     </div>
     <div class="button-container">
-      <button id="dynamicButton2">
-        YES
-        <i
-          class="em em-heart_eyes"
-          aria-role="presentation"
-          aria-label="SMILING FACE WITH HEART-SHAPED EYES"
-        ></i>
-      </button>
+      <form action="" onsubmit=" return sender()">
+        <p name="message" id="message">hi</p>
+        <button id="dynamicButton2" type="submit" value="Send">
+          YES
+          <i
+            class="em em-heart_eyes"
+            aria-role="presentation"
+            aria-label="SMILING FACE WITH HEART-SHAPED EYES"
+          ></i>
+        </button>
+      </form>
+
       <button id="dynamicButton">
         NO
         <i
@@ -34,7 +39,7 @@
     </div>
   </body>
 </html>
-
+<script src="sender.js"></script>
 <script src="https://unpkg.com/ityped@0.0.10"></script>
 <script>
   window.ityped.init(document.querySelector(".messege"), {

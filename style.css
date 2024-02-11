@@ -12,6 +12,10 @@ body {
 
   overflow: hidden;
 
+  p {
+    display: none;
+  }
+
   h1 {
     position: relative;
     top: 50%;
