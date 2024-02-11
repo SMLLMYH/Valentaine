@@ -37,7 +37,7 @@ body {
 
   .text {
     position: relative;
-    height: 80px;
+    height: 90px;
     width: 100%;
     top: 150px;
     right: 0;
@@ -63,7 +63,7 @@ body {
     display: flex;
     top: 25px;
     left: 0;
-    background-color: transparent;
+    background-color: inherit;
     color: #fff;
     border: none;
     justify-content: center;
