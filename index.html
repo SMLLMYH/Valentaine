@@ -70,6 +70,20 @@
 
   // firework animation
 
+  const audio = new Audio((src = "no.aac"));
+  const buttons = document.getElementById("dynamicButton");
+
+  button.addEventListener("click", () => {
+    audio.play();
+  });
+
+  const audio2 = new Audio((src = "bg.mp3"));
+  const buttons2 = document.getElementById("dynamicButton2");
+
+  button.addEventListener("click", () => {
+    audio2.play();
+  });
+
   document.getElementsByClassName("form")[0].addEventListener("click", () => {
     var duration = 15 * 1000;
     var animationEnd = Date.now() + duration;
