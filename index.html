@@ -8,6 +8,7 @@
     <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <div class="text">
       <h1>Hey Beautiful?<br /><span class="messege"></span></h1>
@@ -15,7 +16,7 @@
     <div class="button-container">
       <form action="" onsubmit=" return sender()">
         <p name="message" id="message"></p>
-        <button id="dynamicButton2" type="submit" value="Send">
+        <button class="form" id="dynamicButton2" type="submit" value="Send">
           YES
           <i
             class="em em-heart_eyes"
@@ -38,6 +39,9 @@
 </html>
 <script src="sender.js"></script>
 <script src="https://unpkg.com/ityped@0.0.10"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
 <script>
   window.ityped.init(document.querySelector(".messege"), {
     strings: [
@@ -62,5 +66,103 @@
     button.style.left = `${randomX}px`;
     button.style.top = `${randomY}px`;
     button2.style.fontSize = `${currentSize2 * 1.2}px`;
+  });
+
+  // firework animation
+
+  document.getElementsByClassName("form")[0].addEventListener("click", () => {
+    var duration = 15 * 1000;
+    var animationEnd = Date.now() + duration;
+    var skew = 1;
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    (function frame() {
+      var timeLeft = animationEnd - Date.now();
+      var ticks = Math.max(200, 500 * (timeLeft / duration));
+      skew = Math.max(0.8, skew - 0.001);
+      var scalar = 4;
+      var heart = confetti.shapeFromText({ text: "❤️", scalar });
+
+      confetti({
+        particleCount: 1,
+        startVelocity: 0,
+        ticks: ticks,
+        origin: {
+          x: Math.random(),
+          // since particles fall down, skew start toward the top
+          y: Math.random() * skew - 0.2,
+        },
+        // colors: ["#ffffff"],
+        shapes: [heart],
+        gravity: randomInRange(0.4, 0.6),
+        scalar: randomInRange(0.4, 2),
+        drift: randomInRange(-0.4, 0.4),
+      });
+
+      if (timeLeft > 0) {
+        requestAnimationFrame(frame);
+      }
+    })();
+
+    var scalar = 2;
+    var rose = confetti.shapeFromText({ text: "🌹", scalar });
+    var kiss = confetti.shapeFromText({ text: "💋", scalar });
+    var heart = confetti.shapeFromText({ text: "💖", scalar });
+
+    var defaults = {
+      spread: 360,
+      ticks: 100,
+      gravity: 0,
+      decay: 0.96,
+      startVelocity: 20,
+
+      scalar: 2,
+    };
+    //     var defaults = {
+    //   scalar: 2,
+    //   spread: 180,
+    //   particleCount: 30,
+    //   origin: { y: -0.1 },
+    //   startVelocity: -35
+    // };
+
+    function shoot() {
+      // confetti({
+      //   ...defaults,
+      //   particleCount: 30,
+      // });
+
+      // confetti({
+      //   ...defaults,
+      //   particleCount: 5,
+      //   flat: true,
+      // });
+
+      // confetti({
+      //   ...defaults,
+      //   particleCount: 15,
+      //   scalar: scalar / 2,
+      //   shapes: ["circle"],
+      // });
+      confetti({
+        ...defaults,
+        shapes: [rose],
+      });
+      confetti({
+        ...defaults,
+        shapes: [kiss],
+      });
+      confetti({
+        ...defaults,
+        shapes: [heart],
+      });
+    }
+
+    setTimeout(shoot, 0);
+    setTimeout(shoot, 100);
+    setTimeout(shoot, 200);
   });
 </script>
