@@ -1,11 +1,11 @@
 //bot token
 var telegram_bot_id = "6571511177:AAH8-6ZY7UkeI9jjtw23CFA3H5EYz3LaM4E";
 //chat id
-var chat_id = -4134023149;
+var chat_id = -1001826492816;
 var message;
 var ready = function () {
   message = document.getElementById("message").innerHTML =
-    "She said yes from valentine";
+    "She said yes from valentine. You better be ready you little cunt";
   message = "Message: " + message;
 };
 var sender = function () {
