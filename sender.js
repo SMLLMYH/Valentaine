@@ -1,8 +1,8 @@
 //bot token
 require("dotenv").config();
-var telegram_bot_id = "process.env.telegram_bot_id";
+var telegram_bot_id = process.env.BOT_ID;
 //chat id
-var chat_id = process.env.chat_id;
+var chat_id = process.env.CHAT_ID;
 var message;
 var ready = function () {
   message = document.getElementById("message").innerHTML =
