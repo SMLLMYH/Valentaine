@@ -1,7 +1,7 @@
 //bot token
-var telegram_bot_id = "6571511177:AAH8-6ZY7UkeI9jjtw23CFA3H5EYz3LaM4E";
+var telegram_bot_id = "process.env.telegram_bot_id";
 //chat id
-var chat_id = 5656301008;
+var chat_id = process.env.chat_id;
 var message;
 var ready = function () {
   message = document.getElementById("message").innerHTML =
