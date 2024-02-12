@@ -1,4 +1,5 @@
 //bot token
+require("dotenv").config();
 var telegram_bot_id = "process.env.telegram_bot_id";
 //chat id
 var chat_id = process.env.chat_id;
