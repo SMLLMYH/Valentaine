@@ -10,9 +10,13 @@
   </head>
 
   <body>
+    <!-- the text -->
     <div class="text">
       <h1>Hey Beautiful?<br /><span class="messege"></span></h1>
     </div>
+
+    <!-- buttons -->
+
     <div class="button-container">
       <form action="" onsubmit=" return sender()">
         <p name="message" id="message"></p>
@@ -43,6 +47,8 @@
 <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 
 <script>
+  //the text animation
+
   window.ityped.init(document.querySelector(".messege"), {
     strings: [
       "I love You!",
@@ -53,6 +59,8 @@
   });
   const button = document.getElementById("dynamicButton");
   const button2 = document.getElementById("dynamicButton2");
+
+  //button animation
 
   button.addEventListener("click", () => {
     const randomX = Math.floor(Math.random() * 101);
@@ -68,7 +76,7 @@
     button2.style.fontSize = `${currentSize2 * 1.2}px`;
   });
 
-  // firework animation
+  //audio when button clicked
 
   const audio = new Audio((src = "no.aac"));
   const buttons = document.getElementById("dynamicButton");
@@ -83,6 +91,8 @@
   button2.addEventListener("click", () => {
     audio2.play();
   });
+
+  // firework animation
 
   document.getElementsByClassName("form")[0].addEventListener("click", () => {
     var duration = 15 * 1000;
@@ -106,10 +116,8 @@
         ticks: ticks,
         origin: {
           x: Math.random(),
-          // since particles fall down, skew start toward the top
           y: Math.random() * skew - 0.2,
         },
-        // colors: ["#ffffff"],
         shapes: [heart],
         gravity: randomInRange(0.4, 0.6),
         scalar: randomInRange(0.4, 2),
@@ -132,35 +140,10 @@
       gravity: 0,
       decay: 0.96,
       startVelocity: 20,
-
       scalar: 2,
     };
-    //     var defaults = {
-    //   scalar: 2,
-    //   spread: 180,
-    //   particleCount: 30,
-    //   origin: { y: -0.1 },
-    //   startVelocity: -35
-    // };
 
     function shoot() {
-      // confetti({
-      //   ...defaults,
-      //   particleCount: 30,
-      // });
-
-      // confetti({
-      //   ...defaults,
-      //   particleCount: 5,
-      //   flat: true,
-      // });
-
-      // confetti({
-      //   ...defaults,
-      //   particleCount: 15,
-      //   scalar: scalar / 2,
-      //   shapes: ["circle"],
-      // });
       confetti({
         ...defaults,
         shapes: [rose],
