@@ -6,7 +6,7 @@ var chat_id = process.env.CHAT_ID;
 var message;
 var ready = function () {
   message = document.getElementById("message").innerHTML =
-    "She said yes from valentine. You better be ready you little cunt";
+    "She said yes from valentine.";
   message = "Message: " + message;
 };
 var sender = function () {
